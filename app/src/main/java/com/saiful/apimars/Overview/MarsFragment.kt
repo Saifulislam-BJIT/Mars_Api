@@ -19,6 +19,7 @@ class MarsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMarsBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[OverviewViewModel::class.java]
         return binding.root
     }
 
@@ -29,9 +30,9 @@ class MarsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[OverviewViewModel::class.java]
+//        viewModel = ViewModelProvider(this)[OverviewViewModel::class.java]
         viewModel.status.observe(viewLifecycleOwner){
-            binding.apiResult.text = viewModel.status.value
+            binding.apiResult.text = it
         }
     }
 }
