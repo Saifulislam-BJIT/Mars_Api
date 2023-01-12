@@ -30,7 +30,7 @@ class MarsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        viewModel = ViewModelProvider(this)[OverviewViewModel::class.java]
+        viewModel = ViewModelProvider(this)[OverviewViewModel::class.java]
         viewModel.status.observe(viewLifecycleOwner){
             binding.apiResult.text = it
         }
